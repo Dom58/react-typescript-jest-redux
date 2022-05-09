@@ -1,0 +1,17 @@
+.lists-container {
+    margin-right: 50px;
+    /* display: flex; */
+    
+}
+
+.lists {
+    width: 450px;
+    padding: 1px;
+    box-shadow: 1px 0px 5px 0px #0414f3;
+    list-style: none;
+    margin-top: 10px;
+}
+
+.lists ul {
+    margin-top: 10px;
+}
