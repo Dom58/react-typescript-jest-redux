@@ -48,12 +48,17 @@
 
 .hide {
     padding: 5px;
-    background-color: rgb(170, 170, 170);
+    width: 20px;
+    background-color: #fa7272;
     cursor: pointer;
-    color: #0b460e;
+    color: #ffffff;
+    font-weight: 600;
     right: 0;
     position: absolute;
-    margin: 10px 10px 0px 0px;
+    margin: -10px 10px 0px 0px;
+}
 
+.hide:hover {
+    background-color: #d36666;
 }
 

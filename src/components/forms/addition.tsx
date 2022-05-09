@@ -1,9 +1,16 @@
 import React, { useState } from "react";
+import { useDispatch, useSelector } from "react-redux";
+import { Dispatch} from "redux";
+import { add, div, mult, sub } from "../../redux/actions";
 interface Props {
     show: string
     hide: Function
 }
+
 const Addings: React.FC<Props> = ({show, hide}) => {
+    const dispatch: Dispatch<any>  = useDispatch();
+    const { result, loading } = useSelector((state: any) => state.calculator);
+    
     const [number, setNumber] = useState({
         numb1: "",
         numb2: "",
@@ -16,78 +23,60 @@ const Addings: React.FC<Props> = ({show, hide}) => {
         })
     }
 
+    const data = {
+        ...number,
+        numb1: number.numb1 ? parseInt(number.numb1): 0,
+        numb2: number.numb2 ? parseInt(number.numb2): 0,
+    }
+
     const handleAdd = ():void => {
+        dispatch(add(data));
         const addDiv = document.querySelector('#result') as HTMLElement;
-        const a = parseInt(number.numb1);
-        const b = parseInt(number.numb2);
         addDiv.innerHTML = 'Calculating...';
-        setTimeout<[]>(()=> {
-            if(isNaN(a+b)) 
-            {
-                addDiv.innerHTML = `0`
-            }else {
-                addDiv.innerHTML = `${a+b}`
-            } ;
+        setTimeout(() => {
+            addDiv.innerHTML = `${result&&result}`;
         }, 500);
     }
 
     const handleSub = ():void => {
         const addDiv = document.querySelector('#result') as HTMLElement;
-        const a = parseInt(number.numb1);
-        const b = parseInt(number.numb2);
+        dispatch(sub(data));
         addDiv.innerHTML = 'Calculating...';
-        setTimeout<[]>(()=> {
-            if(isNaN(a+b)) 
-            {
-                addDiv.innerHTML = `0`
-            }else {
-                addDiv.innerHTML = `${a-b}`
-            } ;
+        setTimeout(() => {
+            addDiv.innerHTML = `${result&&result}`;
         }, 500);
     }
 
     const handleMult = ():void => {
         const addDiv = document.querySelector('#result') as HTMLElement;
-        const a = parseInt(number.numb1);
-        const b = parseInt(number.numb2);
+        dispatch(mult(data));
         addDiv.innerHTML = 'Calculating...';
-        setTimeout<[]>(()=> {
-            if(isNaN(a+b)) 
-            {
-                addDiv.innerHTML = `0`
-            }else {
-                addDiv.innerHTML = `${a*b}`
-            } ;
+        setTimeout(() => {
+            addDiv.innerHTML = `${result&&result}`;
         }, 500);
     }
 
     const handleDiv = ():void => {
         const addDiv = document.querySelector('#result') as HTMLElement;
-        const a = parseInt(number.numb1);
-        const b = parseInt(number.numb2);
+        dispatch(div(data));
         addDiv.innerHTML = 'Calculating...';
-        setTimeout<[]>(()=> {
-            if(isNaN(a+b)) 
-            {
-                addDiv.innerHTML = `0`
-            }else {
-                addDiv.innerHTML = `${a/b}`
-            } ;
+        setTimeout(() => {
+            addDiv.innerHTML = `${result&&result}`;
         }, 500);
     }
     
     return (
         <div className="calcForm" id="calcForm"  style={{display: show}}>
             <div className="numbers">
+                <span className="hide" onClick={() => hide()}>X</span>
                 <p className="add_results"><span id="result">-</span></p>
                 <input type="number" name="numb1" required={true} placeholder="Number 1..." className="inputs"  value={number.numb1} onChange={handleChange} />
                 <input type="number" name="numb2" required={true} placeholder="Number 2..." className="inputs" value={number.numb2}  onChange={handleChange} />
                 
-                <button className="buttonSubmit" onClick={handleAdd}>Add</button> 
+                <button className="buttonSubmit" onClick={() => handleAdd()}>Add</button> 
                 <button className="buttonSubmit" onClick={handleSub}>SUB</button> <br />
                 <button className="buttonSubmit" onClick={handleMult}>MULT</button> 
                 <button className="buttonSubmit" onClick={handleDiv}>DIV</button>
-                <span className="hide" onClick={() => hide()}>Hide</span>
             </div>
         </div>
     )

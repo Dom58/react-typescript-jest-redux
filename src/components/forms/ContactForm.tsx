@@ -1,19 +1,21 @@
 import React, { useState } from "react";
+import { useDispatch, useSelector } from "react-redux";
+import { Dispatch} from "redux";
 import './index.css';
 import { IGuest as Props } from '../../App';
-
+import {  sendFeedback } from "../../redux/actions";
 interface IProps {
     guests: Props["guests"]
     setGuests: React.Dispatch<React.SetStateAction<Props["guests"]>>
 }
 
-interface IErrors {
-    errors: {
-        error: String
-    }[]
-}
-
-const ContactForm: React.FC<IProps> = ({guests, setGuests}) => {
+const ContactForm: React.FC<IProps> = ({guests}) => {
+    const dispatch: Dispatch<any>  = useDispatch();
+    const { 
+        sendFeedbackSuccess,
+        sendFeedbackFailure,
+        feedbackLoading 
+    } = useSelector((state: any) => state.contacts);
 
     const [input, setInput] = useState({
         name: "",
@@ -22,8 +24,6 @@ const ContactForm: React.FC<IProps> = ({guests, setGuests}) => {
         bio: ""
     });
 
-    const [errors, setErrors] = useState<IErrors['errors']>([]);
-
     const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
         setInput({
             ...input,
@@ -31,24 +31,17 @@ const ContactForm: React.FC<IProps> = ({guests, setGuests}) => {
         })
     }
 
+    const data = {
+        ...guests,
+        firstName: input.name,
+        lastName: input.name,
+        email: input.email,
+        age: parseInt(input.age),
+        body: input.bio
+    }
+
     const handleSubmit = ():void => {
-        if(!input.age || !input.name || !input.email || !input.bio){
-            return setErrors([{error: 'Name is required!,Email is required!,Age is required!,Bio is required!'}]);
-        }
-        if(isNaN(parseInt(input.age))) {
-            return setErrors([{error: 'Age should be a number!'}]);
-        } else {
-            setGuests([
-                ...guests,
-                {
-                    name: input.name,
-                    email: input.email,
-                    age: parseInt(input.age),
-                    bio: input.name
-                }
-            ]);
-            return setErrors([]);
-        } 
+        dispatch(sendFeedback(data));
     }
     
     return (
@@ -56,20 +49,15 @@ const ContactForm: React.FC<IProps> = ({guests, setGuests}) => {
             <h1>Contact Me</h1>
             <hr />
             <div className="contactForms">
-                <input type="text" name="name" required={true} placeholder="Full Name..." className="inputs"  value={input.name} onChange={handleChange} style={{border: errors&&errors.length > 0 ?'1px solid brown': ''}}/>
-                <input type="email" name="email" required={true} placeholder="Email..." className="inputs" value={input.email}  onChange={handleChange} style={{border: errors&&errors.length > 0 ?'1px solid brown': ''}}/>
-                <input type="text"  name="age" placeholder="Age..." className="inputs" value={input.age}  onChange={handleChange} style={{border: errors&&errors.length > 0 ?'1px solid brown': ''}}/>
-                <textarea  name="bio" placeholder="Bio..." className="textarea" value={input.bio} onChange={handleChange} style={{border: errors&&errors.length > 0 ?'1px solid brown': ''}} />
+                <input type="text" name="name" required={true} placeholder="Full Name..." className="inputs"  value={input.name} onChange={handleChange} />
+                <input type="email" name="email" required={true} placeholder="Email..." className="inputs" value={input.email}  onChange={handleChange} />
+                <input type="text"  name="age" placeholder="Age..." className="inputs" value={input.age}  onChange={handleChange} />
+                <textarea  name="bio" placeholder="Bio..." className="textarea" value={input.bio} onChange={handleChange}  />
+                { feedbackLoading&&(<button className="buttonSubmit" disabled={true}>Submitting...</button>) }
 
                 <button className="buttonSubmit" onClick={handleSubmit}>Submit</button>
-                {errors&&
-                    <p>
-                        {errors.map((err, i) => (
-                            <li className="error" key={i+1}>{err.error.replaceAll(',', `${i+1}`)}</li>
-                            ))
-                        }
-                    </p>
-                }
+                {sendFeedbackSuccess&&<span style={{color: 'green'}}>{sendFeedbackSuccess}</span>}
+                {sendFeedbackFailure&&<span className="error">Error: {sendFeedbackFailure}</span>}
             </div>
         </div>
     )
