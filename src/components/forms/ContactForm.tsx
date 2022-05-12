@@ -53,9 +53,8 @@ const ContactForm: React.FC<IProps> = ({guests}) => {
                 <input type="email" name="email" required={true} placeholder="Email..." className="inputs" value={input.email}  onChange={handleChange} />
                 <input type="text"  name="age" placeholder="Age..." className="inputs" value={input.age}  onChange={handleChange} />
                 <textarea  name="bio" placeholder="Bio..." className="textarea" value={input.bio} onChange={handleChange}  />
-                { feedbackLoading&&(<button className="buttonSubmit" disabled={true}>Submitting...</button>) }
 
-                <button className="buttonSubmit" onClick={handleSubmit}>Submit</button>
+                <button className="buttonSubmit" onClick={handleSubmit}>{feedbackLoading ? 'Submitting...':  'Submit'}</button>
                 {sendFeedbackSuccess&&<span style={{color: 'green'}}>{sendFeedbackSuccess}</span>}
                 {sendFeedbackFailure&&<span className="error">Error: {sendFeedbackFailure}</span>}
             </div>

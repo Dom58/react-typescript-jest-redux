@@ -14,7 +14,6 @@ export const sendFeedback = (data: object) => {
                 dispatch({ type: ActionContactType.SEND_FEEDBACK_SUCCESS, payload: res.data.message });
             })
             .catch(err => {
-                console.log('======err===', err);
                 dispatch({
                     type: ActionContactType.SEND_FEEDBACK_FAILURE,
                     payload: err.response ? err.response.data.error : null,
