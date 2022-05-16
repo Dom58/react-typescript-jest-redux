@@ -21,3 +21,40 @@
 npm-debug.log*
 yarn-debug.log*
 yarn-error.log*
+
+# Compiled binary addons (http://nodejs.org/api/addons.html)
+build/Release
+
+# Dependency directory
+node_modules
+
+# Optional npm cache directory
+.npm
+
+# node-waf configuration
+.lock-wscript
+package-lock.json
+
+#dotenv
+.env
+
+#test repo
+.nyc_output/
+
+#editorconfig
+.editorconfig
+
+#dist
+dist
+
+# Prisma repo
+./prisma
+generated
+prisma/docker-compose.yml
+
+assets/audios/
+assets/images/
+
+# static files
+static/*
+
