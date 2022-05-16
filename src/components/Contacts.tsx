@@ -1,5 +1,5 @@
 import React from "react";
-import { IGuest } from '../App';
+import { IGuest } from '../pages/home';
 import './index.css';
 
 const Contacts: React.FC<IGuest> = ({guests}) => {

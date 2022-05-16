@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { Dispatch} from "redux";
 import './index.css';
-import { IGuest as Props } from '../../App';
+import { IGuest as Props } from '../../pages/home';
 import {  sendFeedback } from "../../redux/actions";
 interface IProps {
     guests: Props["guests"]
