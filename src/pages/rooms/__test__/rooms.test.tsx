@@ -1,7 +1,8 @@
 import React from "react";
 import ReactDOM from 'react-dom';
-import {render, screen} from '@testing-library/react';
+import {render, screen, cleanup } from '@testing-library/react';
 import { Provider } from 'react-redux'
+import renderer from 'react-test-renderer';
 import { store } from '../../../redux/store';
 import AllRooms from "../rooms";
 
@@ -21,7 +22,8 @@ describe('Test Rooms component', () => {
     afterEach(() => {
         document.body.removeChild(containerRooms);
         containerRooms.remove();
-    })
+        cleanup();
+    });
 
     it('Render rooms card ', () => {
         const news = render(
@@ -40,7 +42,15 @@ describe('Test Rooms component', () => {
 
         const linkElement = screen.getAllByText('Rooms');
         expect(linkElement).toBeTruthy();
+     });
 
-     })
+     it('should test snapshots of rooms', () => {
+        const tree = renderer.create(
+            <Provider store={store}>
+                <AllRooms />
+            </Provider>
+        ).toJSON();
+        expect(tree).toMatchSnapshot();
+    });
 
 })

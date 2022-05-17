@@ -1,7 +1,8 @@
 import React from "react";
 import ReactDOM from 'react-dom';
-import {fireEvent, render, screen} from '@testing-library/react';
+import {fireEvent, render, screen, cleanup} from '@testing-library/react';
 import userEvent from "@testing-library/user-event";
+import renderer from 'react-test-renderer';
 import { Provider } from 'react-redux'
 import { store } from '../../../redux/store';
 import Addings from "../addition";
@@ -23,6 +24,7 @@ describe('Test addition component', () => {
     afterEach(() => {
         document.body.removeChild(container);
         container.remove();
+        cleanup();
     })
 
     it('Render addition components', () => {
@@ -133,6 +135,24 @@ describe('Test addition component', () => {
         fireEvent.click(buttonsDiv);
         expect(parseInt(numb1.value) / parseInt(numb2.value)).not.toBe(13);
         expect(parseInt(numb1.value) / parseInt(numb2.value)).toBe(25);
+    });
+
+    it('should test snapshot of addition calculator', async() => {
+        const tree = renderer.create(
+            <Provider store={store}>
+                <Addings  show="none" hide={()=> {}}/>
+            </Provider>
+        ).toJSON();
+        expect(tree).toMatchSnapshot();  
+    });
+
+    it('should test snapshot of addition calculator 2', async() => {
+        const tree = renderer.create(
+            <Provider store={store}>
+                <Addings  show="block" hide={()=> {}}/>
+            </Provider>
+        ).toJSON();
+        expect(tree).toMatchSnapshot();
     });
 
 })

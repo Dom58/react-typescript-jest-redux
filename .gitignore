@@ -57,4 +57,7 @@ assets/images/
 
 # static files
 static/*
+src/components/forms/__tests__/__snapshots__/
+src/pages/rooms/__test__/__snapshots__/
+src/pages/__snapshots__/*
 

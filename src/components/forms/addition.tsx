@@ -69,7 +69,7 @@ const Addings: React.FC<Props> = ({show, hide}) => {
         <div className="calcForm" id="calcForm"  style={{display: show}}>
             <div className="numbers">
                 <span className="hide" onClick={() => hide()}>X</span>
-                <p className="add_results"><span id="result">-</span></p>
+                <p className="add_results"><span id="result">---</span></p>
                 <input type="number" name="numb1" required={true} placeholder="Number 1..." className="inputs"  value={number.numb1} onChange={handleChange} />
                 <input type="number" name="numb2" required={true} placeholder="Number 2..." className="inputs" value={number.numb2}  onChange={handleChange} />
                 

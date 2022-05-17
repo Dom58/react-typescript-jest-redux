@@ -22,13 +22,31 @@ You will also see any lint errors in the console.
 
 ### `npm test`
 
+#### Jest will look for test files with any of the following popular naming conventions:
+
+Files with .js suffix in `__tests__` folders.
+Files with `.test.tsx` suffix.
+Files with `.spec.jsx` suffix.
+The  `.test.js / .spec.js` files (or the `__tests__ `folders) can be located at any depth under the `src` top level folder.
+
 Launches the test runner in the interactive watch mode.\
 See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
 
 # `npm test -- --coverage` running test with the coverage
-# Or
+Or
 # `npm test -- --coverage --watchAll=false` running test with the coverage by checking in all files
 
+# Create Snatpshots
+Run `npm i --save-dev @types/react-test-renderer` and import it in your test file like 
+`import renderer from 'react-test-renderer';` and use it in test method as
+<code>
+    const tree = renderer.create(
+            <Your_Provider store={store}>
+                <Your_Componets  />
+            </End_Your_Provider>
+        ).toJSON();
+    expect(tree).toMatchSnapshot();
+</code>
 
 ### `npm run build`
 
@@ -40,18 +58,4 @@ Your app is ready to be deployed!
 
 See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
 
-### `npm run eject`
-
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
-
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
-
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
+## Author `Dominique Ndahimana`
