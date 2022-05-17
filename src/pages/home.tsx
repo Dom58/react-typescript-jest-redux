@@ -46,15 +46,15 @@ const Home = () => {
       <h2>All Messages <a href={routes.rooms}>Rooms</a></h2>
       {guests.length ===0 && <p style={{color: 'brown'}}>No message created yet!</p>}
       <div className='container'>
-        <Contacts guests={guests&&guests} />
-        <ContactForm guests={guests} setGuests={setGuests} />
+        <Contacts guests={guests&&guests} data-testid="contacts"/>
+        <ContactForm guests={guests} setGuests={setGuests} data-testid="contactForm"/>
 
         {/* calculator */}
-        <button className='btn-calculator' type='button' onMouseMove={() => showCalculator()}>Calc(+/-)</button>
-        <Addings show={'none'} hide={hide}/>
+        <button data-testid="showCalculator" className='btn-calculator' type='button' onMouseMove={() => showCalculator()}>Calc(+/-)</button>
+        <Addings show={'none'} hide={hide} data-testid="addForm"/>
       </div>
 
-      <Footer author={"Dom58"}/>
+      <Footer author={"Dom58"} data-testid="footer"/>
     </div>
   );
 }

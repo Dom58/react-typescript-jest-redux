@@ -1,4 +1,4 @@
-import React, { useState, useEffect} from 'react';
+import React, { useEffect} from 'react';
 import { useDispatch, useSelector } from "react-redux";
 import { Dispatch } from "redux";
 import Loading from '../../components/loading/Loading';
@@ -6,7 +6,6 @@ import routes from '../../config/names';
 import { fetchHotelRooms, fetchOneRoom } from '../../redux/actions';
 import { Room } from './rooms'
 import './rooms.css';
-
 interface RoomProps {
     props: string;
 }
@@ -40,16 +39,20 @@ const SingleRoom: React.FC = () => {
                 { roomLoading ? <Loading />: singleRoom() }
             </div>
 
+            {/* <form data-test="single-room-card">
+                <input name="name" data-test="name"/>
+            </form> */}
+
             <h1>More Rooms</h1>
             <div className='cards'>
-                { rooms&&rooms.slice(1, 9).map((room: Room, i:number) => {
+                { rooms&&rooms.slice(1, 10).map((room: Room, i:number) => {
                     return (
                         <a href={`/rooms/${room.slug}`} className="card" key={i+1}>
                         <img src={room.image} className="card__image" alt="" />
                         <div className="card__overlay">
                             <div className="card__header">
                             <svg className="card__arc"><path /></svg>                     
-                            <img className="card__thumb" src="https://res.cloudinary.com/igitego-hotels/image/upload/v1635238620/Logos/WhatsApp_Image_2021-10-23_at_07.45.02_fuimgr.jpg" alt="" />
+                            <img className="card__thumb" alt="image" src="https://res.cloudinary.com/igitego-hotels/image/upload/v1635238620/Logos/WhatsApp_Image_2021-10-23_at_07.45.02_fuimgr.jpg" />
                             <div className="card__header-text">
                                 <h3 className="card__title">{room.name}</h3>            
                                 <span className="card__status">{room.status}</span>

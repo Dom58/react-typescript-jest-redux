@@ -73,10 +73,10 @@ const Addings: React.FC<Props> = ({show, hide}) => {
                 <input type="number" name="numb1" required={true} placeholder="Number 1..." className="inputs"  value={number.numb1} onChange={handleChange} />
                 <input type="number" name="numb2" required={true} placeholder="Number 2..." className="inputs" value={number.numb2}  onChange={handleChange} />
                 
-                <button className="buttonSubmit" onClick={() => handleAdd()}>Add</button> 
-                <button className="buttonSubmit" onClick={handleSub}>SUB</button> <br />
-                <button className="buttonSubmit" onClick={handleMult}>MULT</button> 
-                <button className="buttonSubmit" onClick={handleDiv}>DIV</button>
+                <button className="buttonSubmit" onClick={() => handleAdd()} data-testid="add">Add</button> 
+                <button className="buttonSubmit" onClick={handleSub} data-testid="sub">SUB</button> <br />
+                <button className="buttonSubmit" onClick={handleMult} data-testid="mult">MULT</button> 
+                <button className="buttonSubmit" onClick={handleDiv} data-testid="div">DIV</button>
             </div>
         </div>
     )
