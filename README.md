@@ -1,4 +1,10 @@
-# Getting Started with Create React App
+# React typescript Redux Jest
+
+![badge-branches](https://user-images.githubusercontent.com/33524053/168774004-e7664c0d-3589-4daf-8ae4-d9b415ce8adc.svg)
+![badge-functions](https://user-images.githubusercontent.com/33524053/168774016-4945ea80-6f5a-496e-9ff0-d521dc7bc57f.svg)
+![badge-lines](https://user-images.githubusercontent.com/33524053/168774019-fc5e9c75-12ac-410e-b812-c6763b7cb932.svg)
+![badge-statements](https://user-images.githubusercontent.com/33524053/168774023-12dae5ac-a9cd-44d7-80ed-e21ce004c4bc.svg)
+
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
