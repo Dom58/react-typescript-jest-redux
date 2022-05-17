@@ -16,10 +16,15 @@
     font-weight: 600;
     color: #fff;
     cursor: pointer;
+    transition-duration: 3s, 5s;
+    transition: visibility 0s, opacity 0.2s linear;
+    transition-property: opacity, left, top, height;
 }
 
 .btn-calculator:hover {
     background-color: #0b460e;
+    width: 82px;
+    height: 82px;
 }
 
 .numbers {
@@ -32,6 +37,9 @@
     padding: 20px;
     z-index: 1001;
     margin: 0px 10px 90px 0px;
+    transition-duration: 3s, 5s;
+    transition: visibility 10s, opacity 0.2s linear;
+    transition-property: opacity, left, top, height;
 }
 
 .numbers .buttonSubmit {

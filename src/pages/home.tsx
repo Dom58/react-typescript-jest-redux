@@ -33,6 +33,8 @@ const Home = () => {
     
     setTimeout<[]>(()=> {
       showCalc.style.display="block";
+      showCalc.style.transition="visibility 0s, opacity 0.2s linear";
+      showCalc.style.opacity= '1';
     }, 500);
   }
 
@@ -50,7 +52,7 @@ const Home = () => {
         <ContactForm guests={guests} setGuests={setGuests} data-testid="contactForm"/>
 
         {/* calculator */}
-        <button data-testid="showCalculator" className='btn-calculator' type='button' onMouseMove={() => showCalculator()}>Calc(+/-)</button>
+        <button data-testid="showCalculator" className='btn-calculator' type='button' onMouseMove={() => showCalculator()} onMouseEnter={() => hide()}>Calc(+/-)</button>
         <Addings show={'none'} hide={hide} data-testid="addForm"/>
       </div>
 
