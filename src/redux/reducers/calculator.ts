@@ -32,18 +32,19 @@ export default function (state = initialState, action: Action) {
 		case ActionType.CREATE_REQUEST:
 			return {
 				...state,
-				loading: false
+				loading: true
 			}
 		case ActionType.CREATE_ADDITION:
 			return {
 				...state,
 				result: action.payload,
-				loading: true
+				loading: false
 			}
 		case ActionType.CREATE_SUBSTRACTION:
 			return {
 				...state,
-				result: action.payload
+				result: action.payload,
+				loading: false
 			}
 		case ActionType.CREATE_MULTIPLICATION:
 			return {

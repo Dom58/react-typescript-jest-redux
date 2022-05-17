@@ -2,7 +2,7 @@ import {
 	createStore,
 	applyMiddleware 
 } from 'redux';
-// import { configureStore } from'@reduxjs/toolkit';
+import { composeWithDevTools } from '@redux-devtools/extension';
 import thunk from 'redux-thunk';
 import reducers from '../reducers';
 
@@ -11,7 +11,7 @@ const initialState = {};
 export const store = createStore(
 	reducers, 
 	initialState, 
-	applyMiddleware(thunk)
+	composeWithDevTools(
+		applyMiddleware(thunk)
+	)
 );
-
-// @reduxjs/toolkit
