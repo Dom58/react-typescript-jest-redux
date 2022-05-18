@@ -1,5 +1,5 @@
 export default {
-    home: '/',
-    rooms: '/rooms',
-    singleRoom: '/rooms/:slug'
-}
+  home: '/',
+  rooms: '/rooms',
+  singleRoom: '/rooms/:slug'
+};

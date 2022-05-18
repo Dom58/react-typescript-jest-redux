@@ -5,7 +5,6 @@
 ![badge-lines](https://user-images.githubusercontent.com/33524053/168774019-fc5e9c75-12ac-410e-b812-c6763b7cb932.svg)
 ![badge-statements](https://user-images.githubusercontent.com/33524053/168774023-12dae5ac-a9cd-44d7-80ed-e21ce004c4bc.svg)
 
-
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
 ## Available Scripts
@@ -27,25 +26,28 @@ You will also see any lint errors in the console.
 Files with .js suffix in `__tests__` folders.
 Files with `.test.tsx` suffix.
 Files with `.spec.jsx` suffix.
-The  `.test.js / .spec.js` files (or the `__tests__ `folders) can be located at any depth under the `src` top level folder.
+The `.test.js / .spec.js` files (or the `__tests__ `folders) can be located at any depth under the `src` top level folder.
 
 Launches the test runner in the interactive watch mode.\
 See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
 
 # `npm test -- --coverage` running test with the coverage
+
 Or
+
 # `npm test -- --coverage --watchAll=false` running test with the coverage by checking in all files
 
 # Create Snatpshots
-Run `npm i --save-dev @types/react-test-renderer` and import it in your test file like 
+
+Run `npm i --save-dev @types/react-test-renderer` and import it in your test file like
 `import renderer from 'react-test-renderer';` and use it in test method as
 <code>
-    const tree = renderer.create(
-            <Your_Provider store={store}>
-                <Your_Componets  />
-            </End_Your_Provider>
-        ).toJSON();
-    expect(tree).toMatchSnapshot();
+const tree = renderer.create(
+<Your_Provider store={store}>
+<Your_Componets />
+</End_Your_Provider>
+).toJSON();
+expect(tree).toMatchSnapshot();
 </code>
 
 ### `npm run build`

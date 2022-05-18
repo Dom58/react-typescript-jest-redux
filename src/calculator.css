@@ -1,72 +1,70 @@
 .btn-calculator {
-    width: 80px;
-    height: 80px;
-    background-color: #127a17;
-    bottom: 0;
-    right: 0;
-    margin: 10px;
-    z-index: 999;
-    position: fixed;
-    border: none;
-    border-radius: 50%;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    font-size: 18px;
-    font-weight: 600;
-    color: #fff;
-    cursor: pointer;
-    transition-duration: 3s, 5s;
-    transition: visibility 0s, opacity 0.2s linear;
-    transition-property: opacity, left, top, height;
+  width: 80px;
+  height: 80px;
+  background-color: #127a17;
+  bottom: 0;
+  right: 0;
+  margin: 10px;
+  z-index: 999;
+  position: fixed;
+  border: none;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 18px;
+  font-weight: 600;
+  color: #fff;
+  cursor: pointer;
+  transition-duration: 3s, 5s;
+  transition: visibility 0s, opacity 0.2s linear;
+  transition-property: opacity, left, top, height;
 }
 
 .btn-calculator:hover {
-    background-color: #0b460e;
-    width: 82px;
-    height: 82px;
+  background-color: #0b460e;
+  width: 82px;
+  height: 82px;
 }
 
 .numbers {
-    position: absolute;
-    border: 1px solid #ce5a0c;
-    background-color: #f3f3f3;
-    border-radius: 20px;
-    bottom: 0;
-    right: 0;
-    padding: 20px;
-    z-index: 1001;
-    margin: 0px 10px 90px 0px;
-    transition-duration: 3s, 5s;
-    transition: visibility 10s, opacity 0.2s linear;
-    transition-property: opacity, left, top, height;
+  position: absolute;
+  border: 1px solid #ce5a0c;
+  background-color: #f3f3f3;
+  border-radius: 20px;
+  bottom: 0;
+  right: 0;
+  padding: 20px;
+  z-index: 1001;
+  margin: 0px 10px 90px 0px;
+  transition-duration: 3s, 5s;
+  transition: visibility 10s, opacity 0.2s linear;
+  transition-property: opacity, left, top, height;
 }
 
 .numbers .buttonSubmit {
-    background-color: #0b460e;
-    width: 15%;
+  background-color: #0b460e;
+  width: 15%;
 }
 
 .add_results {
-    border: 1px solid #0b460e;
-    padding: 30px;
-    border-radius: 2px;
-
+  border: 1px solid #0b460e;
+  padding: 30px;
+  border-radius: 2px;
 }
 
 .hide {
-    padding: 5px;
-    width: 20px;
-    background-color: #fa7272;
-    cursor: pointer;
-    color: #ffffff;
-    font-weight: 600;
-    right: 0;
-    position: absolute;
-    margin: -10px 10px 0px 0px;
+  padding: 5px;
+  width: 20px;
+  background-color: #fa7272;
+  cursor: pointer;
+  color: #ffffff;
+  font-weight: 600;
+  right: 0;
+  position: absolute;
+  margin: -10px 10px 0px 0px;
 }
 
 .hide:hover {
-    background-color: #d36666;
+  background-color: #d36666;
 }
-
