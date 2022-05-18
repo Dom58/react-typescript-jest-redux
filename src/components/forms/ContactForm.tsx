@@ -4,7 +4,7 @@ import { Dispatch} from "redux";
 import './index.css';
 import { IGuest as Props } from '../../pages/home';
 import {  sendFeedback } from "../../redux/actions";
-interface IProps {
+export interface IProps {
     guests: Props["guests"]
     setGuests: React.Dispatch<React.SetStateAction<Props["guests"]>>
 }
@@ -54,7 +54,7 @@ const ContactForm: React.FC<IProps> = ({guests}) => {
                 <input type="text"  name="age" placeholder="Age..." className="inputs" value={input.age}  onChange={handleChange} />
                 <textarea  name="bio" placeholder="Bio..." className="textarea" value={input.bio} onChange={handleChange}  />
 
-                <button className="buttonSubmit" onClick={handleSubmit}>{feedbackLoading ? 'Submitting...':  'Submit'}</button>
+                <button className="buttonSubmit" data-testid="Submit" onClick={handleSubmit}>{feedbackLoading ? 'Submitting...':  'Submit'}</button>
                 {sendFeedbackSuccess&&<span style={{color: 'green'}}>{sendFeedbackSuccess}</span>}
                 {sendFeedbackFailure&&<span className="error">Error: {sendFeedbackFailure}</span>}
             </div>

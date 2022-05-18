@@ -60,6 +60,7 @@
   },
   "devDependencies": {
     "@types/react-test-renderer": "^18.0.0",
+    "eslint": "^8.15.0",
     "jest-coverage-badges": "^1.1.2",
     "react-test-renderer": "^18.1.0"
   }

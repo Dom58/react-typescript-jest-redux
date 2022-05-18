@@ -6,7 +6,6 @@ import renderer from 'react-test-renderer';
 import { Provider } from 'react-redux'
 import { store } from '../../../redux/store';
 import Addings from "../addition";
-import { add } from "../../../redux/actions";
 
 describe('Test addition component', () => {
 

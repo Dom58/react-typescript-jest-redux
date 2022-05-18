@@ -8,7 +8,8 @@ import '@testing-library/jest-dom';
 const originalError = console.error;
 beforeAll( () => {
     console.error = (...args) => {
-        if(/ReactDOM.render is no longer supported in React 18/.test(args[0])) {
+        if(/ReactDOM.render is no longer supported in React 18/.test(args[0]) || 
+        'Error: Expected key descriptor but found "" in ""') {
             return;
         }
         originalError.call(console, ...args)

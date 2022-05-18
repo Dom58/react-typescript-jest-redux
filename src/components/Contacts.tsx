@@ -22,7 +22,7 @@ const Contacts: React.FC<IGuest> = ({guests}) => {
     
     return (
         <div className="lists-container">
-            <ul>
+            <ul data-testid="contacts">
                 {lists()}
             </ul>
         </div>
